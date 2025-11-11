@@ -36,9 +36,38 @@ main{
     padding: 16px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-auto-rows: 300px;
-
 }
 
 .card{
     border: solid black 1px;
+    box-sizing: border-box;
+    display: flex;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    border-radius: 8px;
+}
+
+.card:hover {
+   box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+.book-img{
+    width: 150px;
+    justify-content: center;
+}
+
+.info{
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.info > *{
+    margin-bottom: 0px;
+}
+
+.info > p, h3{
+    margin-top: 8px;
+}
+
+.rmv-btn{
+    margin-top: 8px;
 }

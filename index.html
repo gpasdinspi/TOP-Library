@@ -18,13 +18,7 @@
 
     <main>
         <div class="sidebar">
-            <ul>
-                <li>explore</li>
-                <li>read</li>
-                <li>unread</li>
-                <li>to read</li>
-            </ul>
-
+           
             <h4>Add a book</h4>
             <form id="book-form">
 
@@ -35,7 +29,7 @@
             <input type="text" id="book-author" placeholder="Victor Hugo" name="author" required /><br>
 
             <label for="book-pages">Number of pages :</label>
-            <input type="number" id="book-pages" placeholder="number of pages" name="nb-pages" required /><br>
+            <input type="number" id="book-pages" placeholder="123" name="nb-pages" required /><br>
 
             <label for="status">status of the book :</label><br>
             <select id="status" placeholder="status" name="status" required >
@@ -44,23 +38,58 @@
                 <option value="Will-read">Will read</option>
             </select>
 
-            <button type="submit">Ajouter</button>
+            <button type="button" class="add-book">Ajouter</button>
             </form>
         </div>
 
         <div class="content">
 
             <div class="card">
-                <img src="" alt="book's image" class="book-img">
-                <h3 class="title"></h3>
-                <p class="book-info"></p>
+                <img src="/images/CVT_LEtranger_6254.webp" alt="book's image" class="book-img">
+                <div class="info">
+                    <h3 class="title"> L'étranger</h3>
+                    <p class="author">Albert Camus</p>
+                    <p class="pages-status">191 pages</p>
+                    <label for="status">Status : </label>
+                    <select id="status" placeholder="status" name="status" required >
+                        <option value="Read">Read</option>
+                        <option value="Not-read">Not read</option>
+                        <option value="Will-read">Will read</option>
+                    </select>
+                    <button class="rmv-btn">remove</button>
+                </div>   
             </div>
 
-             <div class="card">
-                <img  alt="book's image" class="book-img">
-                <h3 class="title">élite</h3>
-                <p class="book-info"></p>
+            <div class="card">
+                <img src="/images/les-miserables-305.jpg" alt="book's image" class="book-img">
+                <div class="info">
+                    <h3 class="title">les misérables</h3>
+                    <p class="author">Victor Hugo</p>
+                    <p class="pages-status">955 pages</p>
+                    <label for="status">Status : </label>
+                    <select id="status" placeholder="status" name="status" required >
+                        <option value="Read">Read</option>
+                        <option value="Not-read">Not read</option>
+                        <option value="Will-read">Will read</option>
+                    </select>
+                </div>   
             </div>
+
+            <div class="card">
+                <img src="/images/Illusions-perdues.webp" alt="book's image" class="book-img">
+                <div class="info">
+                    <h3 class="title">Illusions perdues</h3>
+                    <p class="author">Honoré de Balzac</p>
+                    <p class="pages-status">864 pages</p>
+                    <label for="status">Status : </label>
+                    <select id="status" placeholder="status" name="status" required >
+                        <option value="Read">Read</option>
+                        <option value="Not-read">Not read</option>
+                        <option value="Will-read">Will read</option>
+                    </select>
+                </div>   
+            </div>
+
         </div>
     </main>
 
@@ -68,7 +97,8 @@
 
     </footer>
     
+    <script src="/javascript.js"></script>
 </body>
 
-<script src="/javascript.js"></script>
+
 </html>
