@@ -1,32 +1,44 @@
-let myLibrary = [];
+class Book{
+  name;
+  author;
+  pages;
+  status;
+  id;
 
-function Book(name, author, pages, status) {
-  this.name = name;
-  this.author = author;
-  this.pages = pages;
-  this.status = status;
-  this.id = crypto.randomUUID();
+  constructor(name, author, pages, status){
+    this.name = name;
+    this.author = author;
+    this.pages = pages;
+    this.status = status;
+    this.id = crypto.randomUUID();
+  }
+
 }
 
-function addBookToLibrary(name, author, pages, status) {
-  // take params, create a book then store it in the array
-  const book = new Book(name, author, pages, status);
-  myLibrary.push(book)
-  console.log("Livre ajouté :", book);// test
-  printBook()
-}
+class Library{
+  myLibrary;
 
-function RemoveBook(Id){
-  myLibrary = myLibrary.filter(book => book.id !== Id)
-  printBook()
-}
+  constructor(){
+    this.myLibrary = [];
+  }
 
-function printBook(){
+  addBookToLibrary(name, author, pages, status){
+    let book = new Book(name, author, pages, status);
+    this.myLibrary.push(book);
+    console.log("livre ajouté : ", {book});
+    this.printBook();
+  }
+
+  removeBook(Id){
+    this.myLibrary = this.myLibrary.filter(book => book.id !== Id);
+    this.printBook;
+    console.log("fini")
+  }
+
+  printBook(){
   const container = document.querySelector('.content');
-  console.log("Container trouvé :", container); //test
   container.innerHTML = ""; // remet à zéro  
-  for (const book of myLibrary) {
-    console.log("Affichage du livre :", book.name); // test
+  for (const book of this.myLibrary) {
     const card = document.createElement('div');
     card.classList.add('card');
     card.setAttribute('data-id', book.id);
@@ -48,14 +60,17 @@ function printBook(){
     const removeBtn = document.createElement('button');
     removeBtn.textContent = "Remove";
     removeBtn.classList.add('rmv-btn');
-    removeBtn.addEventListener('click', () => RemoveBook(book.id));
+    removeBtn.addEventListener('click', () => this.removeBook(book.id));
 
     infoDiv.appendChild(removeBtn);
     container.appendChild(card)
   }
 }
+}
 
 function main(){
+  let library = new Library;
+  
   const add_btn = document.querySelector('.add-book')
   add_btn.addEventListener('click', () => {
   // récupère les valeurs des inputs
@@ -64,8 +79,8 @@ function main(){
   const pages = document.querySelector('#book-pages').value;
   const status = document.querySelector('#status').value;
 
-  addBookToLibrary(name, author, pages, status);
-});
+  library.addBookToLibrary(name, author, pages, status);
+  });
 }
 
 main()
