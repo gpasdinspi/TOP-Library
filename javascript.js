@@ -31,7 +31,7 @@ class Library{
 
   removeBook(Id){
     this.myLibrary = this.myLibrary.filter(book => book.id !== Id);
-    this.printBook;
+    this.printBook();
     console.log("fini")
   }
 
